@@ -2,25 +2,25 @@
 
 ## Overview
 
-This project was developed using MIT App Inventor to optimize operational inspections and incident reporting in a hotel environment.
+This project was developed using MIT App Inventor to optimize operational inspections and incident reporting in a large building environment.
 
-The original proposal was based on Google Forms. However, this approach required employees to submit multiple forms when several incidents were identified on the same floor. Considering a building with 35 floors, this process significantly increased reporting time and reduced operational efficiency.
+The initial proposal was based on Google Forms. However, the process required employees to submit a separate form for each incident detected during inspections. Since a single floor could contain multiple incidents and the building contained 35 floors, this approach significantly increased reporting time and reduced operational efficiency.
 
-To address these challenges, a mobile application was designed and implemented to simplify data collection, improve reliability, and centralize operational information.
+To address these challenges, a mobile application was designed and implemented to simplify data collection, improve reliability, centralize operational information, and support data-driven decision-making.
 
-**For confidentiality reasons, some application settings, data structures, and integrations have been modified or removed in this public version. Any references to production systems, shared resources, or company-specific information have been excluded.**
+For confidentiality reasons, certain configurations, integrations, identifiers, and operational data have been modified or removed from this public version of the project.
 
 ## Business Problem
 
-The original process presented several operational limitations:
+The original process presented several limitations:
 
-* Multiple forms had to be submitted for the same floor when more than one incident was detected.
-* Internet connectivity was inconsistent in upper floors and basement levels.
-* Unexpected application closures could result in the loss of inspection progress.
-* Manual management of photographic evidence was inefficient and difficult to track.
-* Operational information was fragmented across different sources.
+* Multiple forms had to be submitted for the same floor when several incidents were identified.
+* Internet connectivity was unreliable in upper floors and basement areas.
+* Application interruptions could result in loss of inspection progress.
+* Photographic evidence required additional manual management.
+* Operational information was fragmented and difficult to analyze.
 
-These issues increased the time required to complete inspections and limited the ability to analyze operational data effectively.
+These challenges increased administrative workload and reduced the efficiency of operational inspections.
 
 ## Solution
 
@@ -28,25 +28,41 @@ A mobile application was developed with the following capabilities:
 
 * Offline data collection during inspections.
 * Local storage of incidents while the inspection is in progress.
-* Registration of multiple incidents per floor without submitting separate forms.
+* Registration of multiple incidents per floor without requiring multiple submissions.
 * Recovery of inspections after unexpected application closures.
 * Upload of up to five images per floor as supporting evidence.
-* Automatic synchronization when the inspection is completed.
-* Automated organization and identification of records.
+* Automatic organization of inspection records.
+* Centralized reporting and information management.
 
-The application was intentionally designed to be simple, fast, and easy to use in daily operations, minimizing administrative workload for employees conducting inspections.
+The application was intentionally designed to be simple, fast, and easy to use, minimizing operational delays while improving data quality and accessibility.
+
+## Technical Architecture
+
+The application uses a hybrid data management architecture.
+
+Inspection records and operational incidents are automatically sent to Google Sheets through a JavaScript-based integration, enabling centralized storage and reporting.
+
+Photographic evidence follows a separate process:
+
+* Images are stored locally inside a dedicated application folder called "Recorridas".
+* An external synchronization application was used to automatically connect this folder with Google Drive.
+* This allowed images to be uploaded and shared with supervisors and managers while maintaining a simple and reliable user experience.
+
+This architecture enabled inspections to continue even in areas with limited or no internet connectivity, while ensuring that information could later be synchronized and centralized.
 
 ## Data Flow
 
-Once an inspection is completed:
+When an inspection is completed:
 
-1. Operational data is automatically consolidated into a centralized database.
-2. Photographic evidence is uploaded and organized automatically.
-3. Information becomes available for supervisors and management teams.
+1. Incident information is automatically sent to Google Sheets.
+2. Photographic evidence is synchronized with Google Drive.
+3. Information becomes available to supervisors, managers, and operational staff.
 
-Each inspection generates a unique identifier based on the inspection date and work shift. Images are automatically named using this identifier and the corresponding floor number, improving traceability and record management.
+Each inspection generates a unique identifier based on the inspection date and work shift.
 
-**To protect confidential business information, the Google Sheets connection and other production integrations have been removed from this public version of the project.**
+Images are automatically named using this identifier together with the corresponding floor number, improving traceability, organization, and record management.
+
+To protect confidential information, production links, identifiers, and integrations have been removed from this public version.
 
 ## Operational Analytics and Reporting
 
@@ -58,10 +74,10 @@ The centralized data enabled:
 * Identifying floors and areas with the highest concentration of incidents.
 * Detecting recurring operational issues.
 * Analyzing incident patterns by date, time, and shift.
-* Tracking operational compliance and performance indicators.
-* Supporting decision-making through data-driven insights.
+* Tracking compliance and operational performance indicators.
+* Supporting management decisions through data-driven insights.
 
-These analyses helped management teams prioritize corrective actions, allocate resources more effectively, and identify opportunities for process improvement.
+These analyses helped identify recurring problems, prioritize corrective actions, allocate resources more effectively, and improve operational processes.
 
 ## Benefits Achieved
 
@@ -69,20 +85,22 @@ These analyses helped management teams prioritize corrective actions, allocate r
 * Eliminated dependency on constant internet connectivity.
 * Improved operational data quality and consistency.
 * Centralized operational information.
-* Automated evidence management and organization.
+* Automated organization of photographic evidence.
 * Increased reliability through inspection recovery functionality.
-* Enabled operational reporting and performance monitoring.
+* Enabled operational reporting and KPI monitoring.
 * Improved visibility of recurring incidents and operational trends.
+* Simplified information sharing between operational teams and management.
 
 ## Technologies Used
 
 * MIT App Inventor
+* JavaScript
 * Google Sheets
 * Google Drive
-* Google Apps Script
 * Process Automation
-* Operational Data Collection
-* Reporting and KPI Tracking
+* Mobile Data Collection
+* Operational Reporting
+* KPI Monitoring
 
 ## Author
 
@@ -90,4 +108,4 @@ Rodrigo Espinoza
 
 Data Analyst | SQL | Python | Power BI
 
-This repository contains a portfolio version of the project. Certain integrations, identifiers, links, and operational data have been modified or removed to protect confidential information.
+This repository contains a portfolio version of the project. Certain integrations, links, identifiers, and operational data have been modified or removed to protect confidential business information.
